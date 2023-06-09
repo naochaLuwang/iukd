@@ -1,31 +1,14 @@
 import Banner from "@/components/Banner";
 import React from "react";
 import DoctorCarousal from "../../components/DoctorCarousal";
+import { getAllDoctors } from "../actions/getAllDoctors";
 
-const doctors = [
-  {
-    imageUrl: "/services/dranup.jpeg",
-    name: "Dr. Arup Kumar Nath",
-    department: "UROLOGY",
-  },
-  {
-    imageUrl: "/services/debojit.jpeg",
-    name: "Dr. Debojit Baishya",
-    department: "UROLOGY",
-  },
-  {
-    imageUrl: "/services/dranup.jpeg",
-    name: "Dr. Arup Kumar Nath",
-    department: "UROLOGY",
-  },
-  {
-    imageUrl: "/services/dutta.jpeg",
-    name: "Dr. Anup Dutta Baruah",
-    department: "UROLOGY",
-  },
-];
+export const metadata = {
+  title: "About US | IUKD",
+};
 
-const AboutPage = () => {
+const AboutPage = async () => {
+  const doctors = await getAllDoctors();
   return (
     <div className="w-full h-auto">
       <Banner title="About Us" sublink="About Us" />
@@ -74,7 +57,7 @@ const AboutPage = () => {
           <h1 className="text-lg font-medium lg:text-2xl">OUR CORE TEAM</h1>
         </div>
 
-        <div>
+        <div className="w-full mt-10">
           <DoctorCarousal doctors={doctors} />
         </div>
       </div>
