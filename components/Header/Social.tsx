@@ -38,9 +38,19 @@ const Social = () => {
       <Marquee>
         {data &&
           data.map((alert: any) => (
-            <h1 className="mr-20 text-xs text-white" key={alert.id}>
-              {alert.title}
-            </h1>
+            <>
+              {alert.slug ? (
+                <Link href={alert.slug}>
+                  <h1 className="mr-20 text-xs text-white" key={alert.id}>
+                    {alert.title}
+                  </h1>
+                </Link>
+              ) : (
+                <h1 className="mr-20 text-xs text-white" key={alert.id}>
+                  {alert.title}
+                </h1>
+              )}
+            </>
           ))}
       </Marquee>
     </div>
