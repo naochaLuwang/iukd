@@ -39,7 +39,6 @@ export async function generateStaticParams() {
 const DoctorDetails = async ({ params }: any) => {
   const doctor: PeopleProps = await getDoctor(params.slug);
   const doctors = await getAllDoctors();
-  console.log(doctor);
 
   const filteredDoctors = doctors.filter(
     (doctorItem: PeopleProps) => doctorItem.slug !== params.slug

@@ -38,7 +38,6 @@ export async function generateStaticParams() {
 
 const DepartmentDetails = async ({ params }: any) => {
   const sublink: any = await getSubLink(params.slug);
-  console.log(sublink);
 
   return (
     <div className="w-full h-auto">

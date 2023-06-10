@@ -28,6 +28,8 @@ const BookAppoinment = () => {
     setSelectedDate(date);
   };
 
+  const currentDateTime = new Date().toISOString().slice(0, 16);
+
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
@@ -45,7 +47,7 @@ const BookAppoinment = () => {
       address: "",
       phone: "",
       email: "",
-      date: "",
+      date: currentDateTime,
       department: "",
       doctor: "",
     },
@@ -162,20 +164,21 @@ const BookAppoinment = () => {
         </div>
         <div className="flex flex-col w-full space-y-5">
           <h1 className="mt-5 text-3xl font-medium ">Appoinment Information</h1>
-          {/* <div className="flex flex-col">
+          <div className="flex flex-col">
             <h1>Date</h1>
             <input
-              type="date"
+              type="datetime-local"
               id="date"
-              className={`w-96 px-3 mt-2 py-2 border rounded-md focus:outline-none focus:ring-blue-500 ${
+              className={`w-full px-3 mt-2 py-2 border rounded-md focus:outline-none focus:ring-blue-500 ${
                 errors.date ? "border-red-500" : "border-blue-400"
               }`}
               {...register("date", {
                 required: true,
               })}
+              min={currentDateTime}
               required
             />
-          </div> */}
+          </div>
           <div className="w-96">
             <DepartmentSelect
               id="department"
@@ -197,7 +200,7 @@ const BookAppoinment = () => {
             />
           </div>
 
-          <div className="w-full">
+          {/* <div className="w-full">
             <label htmlFor="date">Select Date:</label>
             <Calendar
               minDate={now}
@@ -205,7 +208,7 @@ const BookAppoinment = () => {
               value={selectedDate}
               className="p-2 react-calendar"
             />
-            {/* Register the selected date in the form */}
+            
             <input
               type="hidden"
               id="date"
@@ -213,7 +216,7 @@ const BookAppoinment = () => {
                 required: true,
               })}
             />
-          </div>
+          </div> */}
           <label className="flex items-center space-x-2">
             <input
               type="checkbox"
