@@ -19,6 +19,7 @@ import {
 
 const Navbar = () => {
   const [data, setData] = useState<any | null>();
+
   const [isLoading, setLoading] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const pathName = usePathname();
@@ -45,8 +46,8 @@ const Navbar = () => {
     fetch(`/api/links`)
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
-        setLoading(false);
+        const sortedNav = [...data].sort((a, b) => a.order - b.order);
+        setData(sortedNav);
       });
   }, []);
 
@@ -103,15 +104,17 @@ const Navbar = () => {
                               : "grid-cols-1 md:w-[400px]"
                           }   `}
                         >
-                          {navlink.sublinks.map((component: any) => (
-                            <ListItem
-                              key={component.title}
-                              title={component.title}
-                              href={`${navlink.slug}/${component.slug}`}
-                            >
-                              {component.subtitle}
-                            </ListItem>
-                          ))}
+                          {navlink.sublinks
+                            .sort((a: any, b: any) => a.order - b.order)
+                            .map((component: any) => (
+                              <ListItem
+                                key={component.title}
+                                title={component.title}
+                                href={`${navlink.slug}/${component.slug}`}
+                              >
+                                {component.subtitle}
+                              </ListItem>
+                            ))}
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
