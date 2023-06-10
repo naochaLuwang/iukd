@@ -5,12 +5,14 @@ import MyEditor from "@/components/Editor";
 
 const TermsConditions = async () => {
   const terms = await getTermsConditions();
-  console.log(terms);
 
   return (
     <div className="w-full h-auto">
       <div className="w-full h-auto">
-        <Banner title="Privacy Policy" sublink="Privacy Policy" />
+        <Banner title="Terms & Conditions" sublink="Terms & Conditions" />
+        <div className="w-full px-4 py-10 mx-auto max-w-7xl lg:px-0 lg:py-20">
+          <MyEditor content={terms[0]?.content} />
+        </div>
       </div>
     </div>
   );

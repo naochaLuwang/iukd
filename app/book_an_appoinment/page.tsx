@@ -75,8 +75,6 @@ const BookAppoinment = () => {
 
   const dep = watch("department");
 
-  console.log(dep);
-
   useEffect(() => {
     // Set doctors based on the selected department
     const selectedDepartment = watch("department");
@@ -91,12 +89,8 @@ const BookAppoinment = () => {
   }, [watch("department"), departments, watch]);
   // Include 'watch("department")' in the dependency array
 
-  console.log(departments);
-  console.log(doctors);
-
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
     setIsLoading(true);
-    console.log(data);
   };
   return (
     <div className="w-full h-screen">
