@@ -40,7 +40,7 @@ const DoctorPage = async () => {
               <h1 className="text-lg font-medium tracking-wide">
                 {`${doctor.salutation} ${doctor.firstName} ${doctor.lastName}`}
               </h1>
-              <p className="mt-1 text-sm">{`${doctor.qualification} (${doctor.department.departmentName})`}</p>
+              <p className="mt-1 text-sm">{`${doctor.qualification} (${doctor?.department?.departmentName})`}</p>
               <p className="mt-2 text-xs line-cramp-3">{doctor.designation}</p>
             </div>
 
