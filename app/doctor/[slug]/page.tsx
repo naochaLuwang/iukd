@@ -50,12 +50,21 @@ const DoctorDetails = async ({ params }: any) => {
       <div className="w-full h-56 py-10 bg-gradient-to-r from-teal-700 to-teal-800 ">
         <div className="flex items-start h-auto px-4 mx-auto space-x-4 lg:px-0 lg:items-center lg:space-x-10 max-w-7xl">
           <div className="relative flex-shrink-0 w-24 h-24 lg:w-40 lg:h-40">
-            <Image
-              src={doctor.profileUrl}
-              alt={doctor.firstName}
-              fill
-              className="rounded-full"
-            />
+            {doctor.profileUrl === "" ? (
+              <Image
+                src="/docplaceholder.jpeg"
+                alt={doctor.firstName}
+                fill
+                className="rounded-full"
+              />
+            ) : (
+              <Image
+                src={doctor.profileUrl}
+                alt={doctor.firstName}
+                fill
+                className="rounded-full"
+              />
+            )}
           </div>
 
           <div className="flex flex-col space-y-2">
