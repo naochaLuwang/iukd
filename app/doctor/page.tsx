@@ -6,6 +6,10 @@ import { TiLocation } from "react-icons/ti";
 import Link from "next/link";
 import { getAllDoctors } from "../actions/getAllDoctors";
 
+export const metadata = {
+  title: "Doctors | IUKD",
+};
+
 const DoctorPage = async () => {
   const doctors: PeopleProps[] = await getAllDoctors();
   return (
