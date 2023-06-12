@@ -63,7 +63,7 @@ const HomePage = async () => {
       <CounterMobile />
       <AboutUs />
       <Service />
-      <Testimonial items={testimonials} />
+      {/* <Testimonial items={testimonials} /> */}
       <EmbedPage />
     </main>
   );

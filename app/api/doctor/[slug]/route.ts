@@ -12,6 +12,9 @@ export async function GET(request: Request, { params }: { params: IParams }) {
     where: {
       slug: slug,
     },
+    include: {
+      department: true,
+    },
   });
 
   return NextResponse.json(doctor);

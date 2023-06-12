@@ -12,15 +12,25 @@ import DepartmentSelect from "@/components/DepartmentSelect";
 import DoctorSelect from "@/components/DoctorSelect";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { useSearchParams } from "next/navigation";
 
 const BookAppoinment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [initialDepartment, setInitialDepartment] = useState<any | null>();
+  const [initialDoctor, setInitialDoctor] = useState<any | null>(null);
 
   const [isChecked, setIsChecked] = useState(false);
   const [departments, setDepartments] = useState<any | null>();
   const [doctors, setDoctors] = useState<any | null>();
   const [selectedDate, setSelectedDate] = useState(null);
+
+  const searchParams = useSearchParams();
+
+  const department = searchParams.get("dep");
+  const id = searchParams.get("id");
+
+  console.log(department, id);
 
   const now = new Date();
 
@@ -29,6 +39,7 @@ const BookAppoinment = () => {
   };
 
   const currentDateTime = new Date().toISOString().slice(0, 16);
+  console.log(currentDateTime);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -54,16 +65,28 @@ const BookAppoinment = () => {
   });
 
   useEffect(() => {
-    const getCurrentDate = () => {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, "0");
-      const day = String(today.getDate()).padStart(2, "0");
-      return `${year}-${month}-${day}`;
-    };
+    if (department) {
+      setValue("department", department);
+    }
+  }, [department, setValue]);
 
-    setValue("date", getCurrentDate());
-  }, [setValue]);
+  useEffect(() => {
+    if (id) {
+      setValue("doctor", id);
+    }
+  }, [id, setValue]);
+
+  // useEffect(() => {
+  //   const getCurrentDate = () => {
+  //     const today = new Date();
+  //     const year = today.getFullYear();
+  //     const month = String(today.getMonth() + 1).padStart(2, "0");
+  //     const day = String(today.getDate()).padStart(2, "0");
+  //     return `${year}-${month}-${day}`;
+  //   };
+
+  //   setValue("date", getCurrentDate());
+  // }, [setValue]);
 
   useEffect(() => {
     setLoading(true);
@@ -75,24 +98,26 @@ const BookAppoinment = () => {
       });
   }, []);
 
-  const dep = watch("department");
+  const selectedDepartment = watch("department");
 
   useEffect(() => {
-    // Set doctors based on the selected department
-    const selectedDepartment = watch("department");
-    if (selectedDepartment && departments) {
-      const foundDepartment = departments.find(
-        (department: any) => department.departmentName === selectedDepartment
-      );
-      if (foundDepartment) {
-        setDoctors(foundDepartment.peoples);
+    if (department && id) {
+      // Set doctors based on the selected department
+      if (selectedDepartment && departments) {
+        const foundDepartment = departments.find(
+          (department: any) => department.departmentName === selectedDepartment
+        );
+        if (foundDepartment) {
+          setDoctors(foundDepartment.peoples);
+        }
       }
     }
-  }, [watch("department"), departments, watch]);
+  }, [department, id, selectedDepartment, departments, watch]);
   // Include 'watch("department")' in the dependency array
 
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
     setIsLoading(true);
+    console.log(data);
   };
   return (
     <div className="w-full h-screen">
