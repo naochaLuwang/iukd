@@ -27,10 +27,10 @@ const BookAppoinment = () => {
 
   const searchParams = useSearchParams();
 
-  const department = searchParams.get("dep");
+  const dep = searchParams.get("dep");
   const id = searchParams.get("id");
 
-  console.log(department, id);
+  console.log(dep, id);
 
   const now = new Date();
 
@@ -53,28 +53,16 @@ const BookAppoinment = () => {
   } = useForm<FieldValues>({
     defaultValues: {
       name: "",
-      gender: "",
+      gender: "MALE",
       age: "",
       address: "",
       phone: "",
       email: "",
       date: currentDateTime,
-      department: "",
-      doctor: "",
+      department: "UROLOGY",
+      doctor: id || "",
     },
   });
-
-  useEffect(() => {
-    if (department) {
-      setValue("department", department);
-    }
-  }, [department, setValue]);
-
-  useEffect(() => {
-    if (id) {
-      setValue("doctor", id);
-    }
-  }, [id, setValue]);
 
   // useEffect(() => {
   //   const getCurrentDate = () => {
@@ -89,6 +77,12 @@ const BookAppoinment = () => {
   // }, [setValue]);
 
   useEffect(() => {
+    if (dep) {
+      setValue("department", dep);
+    }
+  }, [dep, setValue]);
+
+  useEffect(() => {
     setLoading(true);
     fetch(`/api/department`)
       .then((res) => res.json())
@@ -99,20 +93,25 @@ const BookAppoinment = () => {
   }, []);
 
   const selectedDepartment = watch("department");
+  console.log("Selected", selectedDepartment);
 
   useEffect(() => {
-    if (department && id) {
-      // Set doctors based on the selected department
-      if (selectedDepartment && departments) {
-        const foundDepartment = departments.find(
-          (department: any) => department.departmentName === selectedDepartment
-        );
-        if (foundDepartment) {
-          setDoctors(foundDepartment.peoples);
-        }
+    if (selectedDepartment) {
+      setValue("department", selectedDepartment);
+    }
+  }, [selectedDepartment, setValue]);
+
+  useEffect(() => {
+    // Set doctors based on the selected department
+    if (selectedDepartment && departments) {
+      const foundDepartment = departments.find(
+        (department: any) => department.departmentName === selectedDepartment
+      );
+      if (foundDepartment) {
+        setDoctors(foundDepartment.peoples);
       }
     }
-  }, [department, id, selectedDepartment, departments, watch]);
+  }, [dep, id, selectedDepartment, departments, watch]);
   // Include 'watch("department")' in the dependency array
 
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
@@ -140,9 +139,9 @@ const BookAppoinment = () => {
               errors={errors}
               label="Gender"
               menus={[
-                { id: "Male", title: "MALE" },
-                { id: "Female", title: "FEMALE" },
-                { id: "Others", title: "OTHERS" },
+                { id: "MALE", title: "MALE" },
+                { id: "FEMALE", title: "FEMALE" },
+                { id: "OTHERS", title: "OTHERS" },
               ]}
               required
             />
@@ -210,7 +209,7 @@ const BookAppoinment = () => {
               register={register}
               errors={errors}
               label="Department"
-              departments={departments}
+              menus={departments}
               required
             />
           </div>
@@ -220,7 +219,7 @@ const BookAppoinment = () => {
               register={register}
               errors={errors}
               label="Doctor"
-              doctors={doctors}
+              menus={doctors}
               required
             />
           </div>
