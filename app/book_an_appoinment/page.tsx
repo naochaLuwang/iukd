@@ -59,7 +59,7 @@ const BookAppoinment = () => {
       phone: "",
       email: "",
       date: currentDateTime,
-      department: "UROLOGY",
+      department: dep || "",
       doctor: id || "",
     },
   });
@@ -83,6 +83,12 @@ const BookAppoinment = () => {
   }, [dep, setValue]);
 
   useEffect(() => {
+    if (id) {
+      setValue("doctor", id);
+    }
+  }, [id, setValue]);
+
+  useEffect(() => {
     setLoading(true);
     fetch(`/api/department`)
       .then((res) => res.json())
@@ -92,7 +98,8 @@ const BookAppoinment = () => {
       });
   }, []);
 
-  const selectedDepartment = watch("department");
+  let selectedDepartment = watch("department");
+
   console.log("Selected", selectedDepartment);
 
   useEffect(() => {

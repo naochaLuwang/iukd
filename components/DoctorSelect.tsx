@@ -43,9 +43,9 @@ const DoctorSelect: React.FC<SelectProps> = ({
           errors[id] ? "border-red-600" : "border-blue-400"
         } focus:border-blue-700 border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed`}
       >
-        <option className="w-full text-center" value="">
+        {/* <option className="w-full text-center" value="">
           -- Select {label} --
-        </option>
+        </option> */}
         {menus?.map((menu: any) => (
           <option key={menu.id} value={menu.id}>
             {`${menu.salutation} ${menu.firstName} ${menu.lastName} `}
