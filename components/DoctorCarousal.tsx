@@ -63,12 +63,21 @@ const DoctorCarousal: React.FC<DoctorCarouselProps> = ({ doctors }) => {
               className="h-auto pb-5 ml-5 bg-white border shadow-md w-72"
             >
               <div className="relative w-full h-56 ">
-                <Image
-                  src={doctor.profileUrl}
-                  alt={doctor.firstName}
-                  fill
-                  style={{ objectFit: "fill" }}
-                />
+                {doctor.profileUrl === "" ? (
+                  <Image
+                    src="/docplaceholder.jpeg"
+                    alt={doctor.firstName}
+                    fill
+                    style={{ objectFit: "fill" }}
+                  />
+                ) : (
+                  <Image
+                    src={doctor.profileUrl}
+                    alt={doctor.firstName}
+                    fill
+                    style={{ objectFit: "fill" }}
+                  />
+                )}
               </div>
               <div className="flex items-center px-2 pt-3">
                 <TiLocation className="w-6 h-6" />

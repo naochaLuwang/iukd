@@ -4,12 +4,18 @@ import ContactForm from "@/components/ContactForm";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { HiMail } from "react-icons/hi";
 import { MdLocationOn } from "react-icons/md";
+import DoctorForm from "@/components/Availability";
 
 export const metadata = {
   title: "Contact Us | IUKD",
 };
 
 const ContactPage = () => {
+  const handleSubmit = (timeSlots: any) => {
+    // Handle form submission and save the timeSlots to the MongoDB database
+    console.log(timeSlots);
+  };
+
   return (
     <div className="w-full h-auto">
       <Banner title="Contact Us" sublink="Contact Us" />
@@ -46,6 +52,10 @@ const ContactPage = () => {
           <ContactForm />
         </div>
       </div>
+      {/* <div className="container p-4 mx-auto">
+        <h1 className="mb-4 text-2xl font-bold">Doctor Availability Form</h1>
+        <DoctorForm onSubmit={handleSubmit} />
+      </div> */}
     </div>
   );
 };
