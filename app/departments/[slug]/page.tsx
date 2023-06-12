@@ -40,12 +40,16 @@ const DepartmentDetails = async ({ params }: any) => {
   const sublink: any = await getSubLink(params.slug);
 
   return (
-    <div className="w-full h-auto">
-      <Banner title={sublink[0]?.title} sublink={sublink[0]?.title} />
-      <div className="h-auto py-10 mx-auto max-w-7xl min-h-[50vh]">
-        <MyEditor content={sublink[0]?.content} />
-      </div>
-    </div>
+    <>
+      {sublink && (
+        <div className="w-full h-auto">
+          <Banner title={sublink[0]?.title} sublink={sublink[0]?.title} />
+          <div className="h-auto py-10 mx-auto max-w-7xl min-h-[50vh]">
+            <MyEditor content={sublink[0]?.content} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
