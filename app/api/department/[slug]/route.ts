@@ -10,10 +10,14 @@ export async function GET(request: Request, { params }: { params: IParams }) {
   console.log(slug);
   const sublink = await prisma.department.findFirst({
     where: {
-      departmentName: slug,
+      departmentName: slug?.toUpperCase(),
     },
     include: {
-      peoples: true,
+      peoples: {
+        include: {
+          department: true,
+        },
+      },
     },
   });
 

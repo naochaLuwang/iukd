@@ -27,12 +27,12 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="flex-1 h-auto px-10 mt-5 ml-0 lg:ml-24 lg:mt-0 ">
-            <div className="relative h-[250px] w-[450px] rounded-2xl">
+            <div className="relative h-[300px] w-[450px] rounded-2xl">
               <Image
-                src={"/about2.jpg"}
+                src={"/services/about2.jpg"}
                 alt="about Image"
                 fill
-                style={{ objectFit: "fill" }}
+                style={{ objectFit: "contain" }}
                 className="rounded-2xl"
               />
             </div>

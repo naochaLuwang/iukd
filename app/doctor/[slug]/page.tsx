@@ -102,12 +102,12 @@ const DoctorDetails = async ({ params }: any) => {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl w-full h-auto min-h-[50vh] mx-auto py-10 flex">
-        <div className="w-full h-auto pr-5">
+      <div className="max-w-7xl w-full h-auto min-h-[50vh] mx-auto py-10 lg:flex-row flex flex-col">
+        <div className="w-full h-auto lg:pr-5">
           <MyEditor content={doctor?.bio} />
         </div>
 
-        <div className="w-[36rem] h-auto px-10 flex flex-col justify-center rounded-lg shadow-md mt-5 bg-white border">
+        <div className="lg:w-[36rem] w-full py-10 lg:py-0 h-auto px-10 flex flex-col justify-center rounded-lg shadow-md mt-5 bg-white border">
           <h1 className="text-2xl tracking-wide font-quicksand">
             Available Days
           </h1>

@@ -137,9 +137,9 @@ const BookAppoinment = () => {
       });
   };
   return (
-    <div className="w-full h-screen">
-      <div className="grid w-full h-auto max-w-6xl grid-cols-2 gap-10 py-10 mx-auto">
-        <div className="flex flex-col w-full space-y-5">
+    <div className="w-full h-auto lg:min-h-screen">
+      <div className="grid w-full h-auto max-w-6xl grid-cols-1 gap-10 py-10 mx-auto lg:grid-cols-2">
+        <div className="flex flex-col w-full px-8 space-y-5 lg:px-0">
           <h1 className="mt-5 text-3xl font-medium ">Personal Information</h1>
           <SmallInput
             id="name"
@@ -211,14 +211,14 @@ const BookAppoinment = () => {
             required
           />
         </div>
-        <div className="flex flex-col w-full pl-20 space-y-5">
+        <div className="flex flex-col w-full px-8 space-y-5 lg:pl-20 ">
           <h1 className="mt-5 text-3xl font-medium ">Appoinment Information</h1>
           <div className="flex flex-col">
             <h1>Date</h1>
             <input
               type="date"
               id="date"
-              className={`w-96 px-3 mt-2 py-2 border rounded-md focus:outline-none focus:ring-teal-700 ${
+              className={`lg:w-96 w-full px-3 mt-2 py-2 border rounded-md focus:outline-none focus:ring-teal-700 ${
                 errors.date ? "border-red-500" : "border-teal-500"
               }`}
               {...register("date", {
@@ -245,7 +245,7 @@ const BookAppoinment = () => {
               })}
             />
           </div> */}
-          <div className="w-96">
+          <div className="w-full lg:w-96">
             <DepartmentSelect
               id="department"
               register={register}
@@ -255,7 +255,7 @@ const BookAppoinment = () => {
               required
             />
           </div>
-          <div className="w-96">
+          <div className="w-full lg:w-96">
             <DoctorSelect
               id="doctor"
               register={register}
@@ -292,7 +292,7 @@ const BookAppoinment = () => {
           </label>
 
           <button
-            className="py-2 font-medium bg-yellow-500 rounded-md shadow-md w-96"
+            className="w-full py-2 font-medium bg-yellow-500 rounded-md shadow-md lg:w-96"
             onClick={handleSubmit(onSubmit)}
             disabled={isLoading}
           >
