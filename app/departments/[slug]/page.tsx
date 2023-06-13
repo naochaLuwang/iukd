@@ -42,7 +42,7 @@ export async function generateStaticParams() {
 
 const DepartmentDetails = async ({ params }: any) => {
   const sublink: any = await getSubLink(params.slug);
-  const department = await getDepartment(params.slug);
+  // const department = await getDepartment(params.slug);
 
   return (
     <>
@@ -58,7 +58,7 @@ const DepartmentDetails = async ({ params }: any) => {
               <span className="text-3xl text-teal-500">Our Specialist</span>
             </h1>
 
-            <div className="grid w-full grid-cols-1 gap-10 px-6 pb-10 mx-auto lg:py-10 lg:px-0 lg:grid-cols-4 max-w-7xl">
+            {/* <div className="grid w-full grid-cols-1 gap-10 px-6 pb-10 mx-auto lg:py-10 lg:px-0 lg:grid-cols-4 max-w-7xl">
               {department &&
                 department.peoples
                   .sort((a: any, b: any) => a.order - b.order)
@@ -108,7 +108,7 @@ const DepartmentDetails = async ({ params }: any) => {
                       </div>
                     </div>
                   ))}
-            </div>
+            </div> */}
           </div>
         </div>
       )}
