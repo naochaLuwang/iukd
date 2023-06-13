@@ -38,8 +38,7 @@ const BookAppoinment = () => {
     setSelectedDate(date);
   };
 
-  const currentDateTime = new Date().toISOString().slice(0, 16);
-  console.log(currentDateTime);
+  const currentDate = now.toISOString().split("T")[0];
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -58,8 +57,8 @@ const BookAppoinment = () => {
       address: "",
       phone: "",
       email: "",
-      date: currentDateTime,
-      department: dep || "",
+      date: currentDate,
+      department: dep || "UROLOGY",
       doctor: id || "",
     },
   });
@@ -100,25 +99,24 @@ const BookAppoinment = () => {
 
   let selectedDepartment = watch("department");
 
-  console.log("Selected", selectedDepartment);
-
-  useEffect(() => {
-    if (selectedDepartment) {
-      setValue("department", selectedDepartment);
-    }
-  }, [selectedDepartment, setValue]);
+  // if (!dep || !id) {
+  //   selectedDepartment = "UROLOGY";
+  // }
 
   useEffect(() => {
     // Set doctors based on the selected department
     if (selectedDepartment && departments) {
+      setValue("department", selectedDepartment);
+
       const foundDepartment = departments.find(
         (department: any) => department.departmentName === selectedDepartment
       );
-      if (foundDepartment) {
+      if (foundDepartment || id) {
         setDoctors(foundDepartment.peoples);
+        setValue("doctor", id);
       }
     }
-  }, [dep, id, selectedDepartment, departments, watch]);
+  }, [id, selectedDepartment, departments, watch, setValue]);
   // Include 'watch("department")' in the dependency array
 
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
@@ -127,7 +125,7 @@ const BookAppoinment = () => {
   };
   return (
     <div className="w-full h-screen">
-      <div className="grid w-full h-auto max-w-6xl grid-cols-2 gap-10 py-20 mx-auto">
+      <div className="grid w-full h-auto max-w-6xl grid-cols-2 gap-10 py-10 mx-auto">
         <div className="flex flex-col w-full space-y-5">
           <h1 className="mt-5 text-3xl font-medium ">Personal Information</h1>
           <SmallInput
@@ -192,24 +190,48 @@ const BookAppoinment = () => {
               isNumber={false}
             />
           </div>
+          <TextBox
+            label="Message"
+            id="message"
+            register={register}
+            errors={errors}
+            required
+          />
         </div>
-        <div className="flex flex-col w-full space-y-5">
+        <div className="flex flex-col w-full pl-20 space-y-5">
           <h1 className="mt-5 text-3xl font-medium ">Appoinment Information</h1>
           <div className="flex flex-col">
             <h1>Date</h1>
             <input
-              type="datetime-local"
+              type="date"
               id="date"
-              className={`w-full px-3 mt-2 py-2 border rounded-md focus:outline-none focus:ring-blue-500 ${
-                errors.date ? "border-red-500" : "border-blue-400"
+              className={`w-96 px-3 mt-2 py-2 border rounded-md focus:outline-none focus:ring-teal-700 ${
+                errors.date ? "border-red-500" : "border-teal-500"
               }`}
               {...register("date", {
                 required: true,
               })}
-              min={currentDateTime}
+              min={currentDate}
               required
             />
           </div>
+
+          {/* <div className="w-full">
+            <Calendar
+              minDate={now}
+              onChange={handleDateChange}
+              value={selectedDate}
+              className="p-2 react-calendar"
+            />
+
+            <input
+              type="hidden"
+              id="date"
+              {...register("date", {
+                required: true,
+              })}
+            />
+          </div> */}
           <div className="w-96">
             <DepartmentSelect
               id="department"
@@ -231,23 +253,6 @@ const BookAppoinment = () => {
             />
           </div>
 
-          {/* <div className="w-full">
-            <label htmlFor="date">Select Date:</label>
-            <Calendar
-              minDate={now}
-              onChange={handleDateChange}
-              value={selectedDate}
-              className="p-2 react-calendar"
-            />
-            
-            <input
-              type="hidden"
-              id="date"
-              {...register("date", {
-                required: true,
-              })}
-            />
-          </div> */}
           <label className="flex items-center space-x-2">
             <input
               type="checkbox"

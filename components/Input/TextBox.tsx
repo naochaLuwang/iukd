@@ -42,7 +42,7 @@ const Textbox: React.FC<InputProps> = ({
         className={`peer  p-2  font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed  ${
           errors[id] ? "border-rose-500" : "border-teal-500"
         } ${errors[id] ? "focus:border-rose-500" : "focus:border-teal-700"} `}
-        rows={5}
+        rows={3}
       ></textarea>
     </div>
   );

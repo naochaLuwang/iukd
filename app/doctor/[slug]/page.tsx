@@ -107,7 +107,7 @@ const DoctorDetails = async ({ params }: any) => {
           <MyEditor content={doctor?.bio} />
         </div>
 
-        <div className="h-auto mt-5 w-96">
+        <div className="w-[36rem] h-auto px-10 flex flex-col justify-center rounded-lg shadow-md mt-5 bg-white border">
           <h1 className="text-2xl tracking-wide font-quicksand">
             Available Days
           </h1>

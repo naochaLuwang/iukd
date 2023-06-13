@@ -40,8 +40,8 @@ const Select: React.FC<SelectProps> = ({
           required: required ? "Field is required." : false,
         })}
         className={`peer w-full p-2 font-light bg-white ${
-          errors[id] ? "border-red-600" : "border-blue-400"
-        } focus:border-blue-700 border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed`}
+          errors[id] ? "border-red-600" : "border-teal-500"
+        } focus:border-teal-700 border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed`}
       >
         <option className="w-full text-center" value="">
           -- Select {label} --
