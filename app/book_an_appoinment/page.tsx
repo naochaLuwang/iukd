@@ -13,6 +13,8 @@ import DoctorSelect from "@/components/DoctorSelect";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useSearchParams } from "next/navigation";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const BookAppoinment = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -121,7 +123,18 @@ const BookAppoinment = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
     setIsLoading(true);
-    console.log(data);
+
+    axios
+      .post("/api/appoinments", data)
+      .then(() => {
+        toast.success("Message sent successfully");
+      })
+      .catch((error) => {
+        toast.error("Error sending message");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
   return (
     <div className="w-full h-screen">
