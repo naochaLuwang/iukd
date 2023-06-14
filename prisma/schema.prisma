@@ -168,8 +168,10 @@ model People {
   department    Department?   @relation(fields: [departmentId], references: [id])
   appoinment    Appoinments[]
 
-  createdBy String
-  updatedBy String
+  createdBy      String
+  updatedBy      String
+  Outreachopds   Outreachopds? @relation(fields: [outreachopdsId], references: [id])
+  outreachopdsId String?       @db.ObjectId
 }
 
 model Message {
@@ -276,4 +278,23 @@ model Appoinments {
   department String
   doctorId   String @db.ObjectId
   doctor     People @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+}
+
+model Outreachopds {
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  date     String
+  doctorId String     @db.ObjectId
+  opdLists Opdlists[]
+  doctor   People[]
+}
+
+model Opdlists {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  clinicName String
+  location   String
+
+  timing String?
+
+  Outreachopds   Outreachopds? @relation(fields: [outreachopdsId], references: [id])
+  outreachopdsId String?       @db.ObjectId
 }

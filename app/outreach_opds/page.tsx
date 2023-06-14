@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TiLocation } from "react-icons/ti";
 import Link from "next/link";
 import { getAllDoctors } from "../actions/getAllDoctors";
+import VerticalTimelineComponent from "@/components/VerticalTimeline";
 
 export const metadata = {
   title: "Outreach OPDs | IUKD",
@@ -15,7 +16,7 @@ const OutreachPage = async () => {
   return (
     <div className="w-full h-auto">
       <Banner title="Outreach OPDs" sublink="Outreach OPDs" />
-      <div className="grid w-full grid-cols-1 gap-10 px-6 py-10 mx-auto lg:py-20 lg:px-0 lg:grid-cols-4 max-w-7xl">
+      {/* <div className="grid w-full grid-cols-1 gap-10 px-6 py-10 mx-auto lg:py-20 lg:px-0 lg:grid-cols-4 max-w-7xl">
         {doctors &&
           doctors
             .sort((a: any, b: any) => a.order - b.order)
@@ -70,7 +71,9 @@ const OutreachPage = async () => {
                 </div>
               </div>
             ))}
-      </div>
+      </div> */}
+
+      <VerticalTimelineComponent />
     </div>
   );
 };
