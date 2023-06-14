@@ -170,8 +170,8 @@ model People {
 
   createdBy      String
   updatedBy      String
-  Outreachopds   Outreachopds? @relation(fields: [outreachopdsId], references: [id])
-  outreachopdsId String?       @db.ObjectId
+  Outreachopds   Outreachopds[]
+  outreachopdsId String?        @db.ObjectId
 }
 
 model Message {
@@ -285,7 +285,7 @@ model Outreachopds {
   date     String
   doctorId String     @db.ObjectId
   opdLists Opdlists[]
-  doctor   People[]
+  doctor   People     @relation(fields: [doctorId], references: [id], onDelete: Cascade)
 }
 
 model Opdlists {
