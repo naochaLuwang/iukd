@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TiLocation } from "react-icons/ti";
 import Link from "next/link";
 import { getAllDoctors } from "../actions/getAllDoctors";
+import { getAllOutreachOpds } from "../actions/getAllOutreachOpds";
 import VerticalTimelineComponent from "@/components/VerticalTimeline";
 
 export const metadata = {
@@ -13,6 +14,7 @@ export const metadata = {
 
 const OutreachPage = async () => {
   const doctors: PeopleProps[] = await getAllDoctors();
+  const outreachOpds = await getAllOutreachOpds();
   return (
     <div className="w-full h-auto">
       <Banner title="Outreach OPDs" sublink="Outreach OPDs" />
@@ -73,7 +75,7 @@ const OutreachPage = async () => {
             ))}
       </div> */}
 
-      <VerticalTimelineComponent />
+      <VerticalTimelineComponent data={outreachOpds} />
     </div>
   );
 };
