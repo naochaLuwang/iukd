@@ -6,6 +6,7 @@ export async function GET(request: Request) {
   const peoples = await prisma.outreachopds.findMany({
     include: {
       opdLists: true,
+      doctors: true,
     },
   });
 
