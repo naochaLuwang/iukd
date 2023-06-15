@@ -72,7 +72,8 @@ const VerticalTimelineComponent = ({ data }: any) => {
                       {item.doctor?.lastName}
                     </h1>
                     <h1 className="text-sm font-medium font-quicksand">
-                      {item?.doctor.qualification}
+                      {item?.doctor.qualification} (
+                      {item?.doctor.department.departmentName})
                     </h1>
                     <h1 className="text-sm font-medium tracking-wide text-indigo-950 font-quicksand">
                       {item?.doctor.designation}
@@ -98,7 +99,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
                 </div>
                 <div className="flex justify-center w-full mt-5 h-fit">
                   <Link
-                    href={`/book_an_appoinment?dep=${item?.department?.departmentName}&id=${item.id}`}
+                    href={`/book_an_appoinment?dep=${item?.doctor?.department?.departmentName}&id=${item.id}`}
                     className="relative inline-flex items-center px-10 py-3 overflow-hidden text-sm font-medium text-teal-600 border-2 border-teal-600 rounded-full hover:text-white group hover:bg-gray-50"
                   >
                     <span className="absolute left-0 block w-full h-0 transition-all bg-teal-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>

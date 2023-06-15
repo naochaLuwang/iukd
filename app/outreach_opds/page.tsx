@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 const OutreachPage = async () => {
-  const doctors: PeopleProps[] = await getAllDoctors();
+  // const doctors: PeopleProps[] = await getAllDoctors();
   const outreachOpds = await getAllOutreachOpds();
   return (
     <div className="w-full h-auto">
