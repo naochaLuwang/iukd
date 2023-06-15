@@ -12,13 +12,13 @@ import { BiClinic } from "react-icons/bi";
 const VerticalTimelineComponent = ({ data }: any) => {
   const today = new Date().toISOString().split("T")[0]; // Get the current date in YYYY-MM-DD format
 
-  const filteredData = data.filter((item) => item.date >= today);
+  const filteredData = data.filter((item: any) => item.date >= today);
   filteredData.sort((a, b) => new Date(a.date) - new Date(b.date));
   return (
     <div>
       <VerticalTimeline>
         {filteredData &&
-          filteredData.map((item) => (
+          filteredData.map((item: any) => (
             <VerticalTimelineElement
               key={item.id}
               className="font-quicksand vertical-timeline-element--work"
@@ -83,7 +83,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
                   Consult <span className="text-lg">Our Specialist</span>
                 </h1>
                 <div className="grid grid-cols-2 gap-2 mt-5">
-                  {item?.opdLists.map((opdlist) => (
+                  {item?.opdLists.map((opdlist: any) => (
                     <div
                       key={opdlist.id}
                       className="py-3 text-center border rounded-md shadow-sm bg-gradient-to-tr from-teal-700 to-teal-800"
