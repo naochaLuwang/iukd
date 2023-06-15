@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "../components/Footer";
 import MobileHeader from "@/components/Header/MobileHeader";
+import ScrollToTopButton from "@/components/ScrollTop";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -34,7 +35,7 @@ export default function RootLayout({
         </div>
 
         <Footer />
-        {/* <ScrollToTop /> */}
+        <ScrollToTopButton />
       </body>
     </html>
   );

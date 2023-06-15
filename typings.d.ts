@@ -88,3 +88,13 @@ interface PeopleProps {
 
   department: DepartmentProps;
 }
+
+interface CounterProps {
+  id: string;
+  title: string;
+  value: number;
+  order: number;
+  status: "ACTIVE" | "INACTIVE";
+  createdAt: string;
+  updatedAt: string;
+}

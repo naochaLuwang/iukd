@@ -2,10 +2,9 @@ import React from "react";
 import HomeCarousal from "../components/Home/Carousal";
 import AboutUs from "@/components/Home/About";
 import Service from "../components/Home/Service";
-import Testimonial from "../components/Home/Testimonial";
+
 import EmbedPage from "@/components/Home/EmbedPage";
-import { getAllTestimonials } from "./actions/getAllTestimonial";
-import Counter from "@/components/Home/Counter";
+
 import CounterMobile from "@/components/Home/CounterMobile";
 import { getAllCounters } from "./actions/getAllCounters";
 
@@ -16,7 +15,13 @@ export const metadata = {
   title: "IUKD",
 };
 
-const items = [
+type CarouselItem = {
+  imageUrl: string;
+  title: string;
+  description: string;
+};
+
+const items: CarouselItem[] = [
   {
     imageUrl: "slider3.jpg",
     title: "Center for Advance Urology & Kidney Diseases",
@@ -31,30 +36,7 @@ const items = [
   },
 ];
 
-// const testimonials = [
-//   {
-//     testimony:
-//       "They have been an angel in disguise for me. I'm feeling much better and hope to remain in good health. Thank you",
-//     name: "Mahatma G",
-//     place: "Guwahati",
-//   },
-//   {
-//     testimony:
-//       "I appreciate the efficiency and the competence of the doctors and the staff for the professional services we have received. Eventually we emerged victorious.",
-//     name: "Lidia Das Gupta",
-//     place: "Kolkata",
-//   },
-//   {
-//     testimony:
-//       "Excellent clinic in Guwahati. Doctors are professionally competent and staff very friendly. Acuurate and timely blood test. Highly recommend it.",
-//     name: "Anjali Deka",
-//     place: "Guwahati",
-//   },
-// ];
-
 const HomePage = async () => {
-  const testimonials = await getAllTestimonials();
-
   const counters = await getAllCounters();
 
   return (
@@ -63,7 +45,7 @@ const HomePage = async () => {
       <CounterMobile />
       <AboutUs />
       <Service />
-      {/* <Testimonial items={testimonials} /> */}
+
       <EmbedPage />
     </main>
   );
