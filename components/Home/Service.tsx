@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Services = () => {
   return (
@@ -15,77 +16,89 @@ const Services = () => {
         </div>
         <div className="content">
           <div className="shadow-md box">
-            <div className="flex flex-col items-center inner">
-              <Image
-                src={"/services/vec.png"}
-                width={60}
-                height={60}
-                alt="service image"
-              />
-              <p className="text-sm">Endo Urological Surgeries</p>
-            </div>
+            <Link href="/services/endo_urological_surgeries">
+              <div className="flex flex-col items-center inner">
+                <Image
+                  src={"/services/iukd1.png"}
+                  width={60}
+                  height={60}
+                  alt="service image"
+                />
+                <p className="text-sm">Endo Urological Surgeries</p>
+              </div>
+            </Link>
           </div>
           <div className="shadow-md box">
-            <div className="relative flex flex-col items-center inner">
-              <Image
-                src={"/services/vec2.jpg"}
-                width={60}
-                height={60}
-                alt="service image"
-              />
-              <p className="text-sm">Laparoscopic Uro Surgeries</p>
-            </div>
+            <Link href="/services/laparoscopic_uro_surgeries">
+              <div className="relative flex flex-col items-center inner">
+                <Image
+                  src={"/services/iukd6.png"}
+                  width={60}
+                  height={60}
+                  alt="service image"
+                />
+                <p className="text-sm">Laparoscopic Uro Surgeries</p>
+              </div>
+            </Link>
           </div>
           <div className="shadow-md box">
-            <div className="flex flex-col items-center inner">
-              <Image
-                src={"/services/vec3.png"}
-                width={60}
-                height={60}
-                alt="service image"
-              />
-              <p className="text-sm">Reconstructive Surgeries</p>
-            </div>
+            <Link href="/services/reconstructive_surgeries">
+              <div className="flex flex-col items-center inner">
+                <Image
+                  src={"/services/iukd6.png"}
+                  width={60}
+                  height={60}
+                  alt="service image"
+                />
+                <p className="text-sm">Reconstructive Surgeries</p>
+              </div>
+            </Link>
           </div>
           <div className="shadow-md box">
-            <div className="flex flex-col items-center inner">
-              <Image
-                src={"/services/vec4.png"}
-                width={60}
-                height={60}
-                alt="service image"
-              />
-              <p className="text-sm">Urology Cancer Clinic</p>
-            </div>
+            <Link href="/services/urology_cancer_clinic">
+              <div className="flex flex-col items-center inner">
+                <Image
+                  src={"/services/iukd2.png"}
+                  width={60}
+                  height={60}
+                  alt="service image"
+                />
+                <p className="text-sm">Urology Cancer Clinic</p>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="content2 mt-[13px]">
           <div className="shadow-md box">
-            <div className="flex flex-col items-center inner">
-              <Image
-                src={"/services/vec5.png"}
-                width={60}
-                height={60}
-                alt="service image"
-              />
-              <p className="text-sm">Male & Female Urinary Problem</p>
-            </div>
+            <Link href="/services/male_female_urinary_problem">
+              <div className="flex flex-col items-center inner">
+                <Image
+                  src={"/services/iukd3.png"}
+                  width={60}
+                  height={60}
+                  alt="service image"
+                />
+                <p className="text-sm">Male & Female Urinary Problem</p>
+              </div>
+            </Link>
+          </div>
+          <div className="shadow-md box">
+            <Link href="/services/male_fertility_sexual_problem">
+              <div className="flex flex-col items-center inner">
+                <Image
+                  src={"/services/iukd4.png"}
+                  width={60}
+                  height={60}
+                  alt="service image"
+                />
+                <p className="text-sm">Male Infertility & Sexual Problem</p>
+              </div>
+            </Link>
           </div>
           <div className="shadow-md box">
             <div className="flex flex-col items-center inner">
               <Image
-                src={"/services/vec6.png"}
-                width={60}
-                height={60}
-                alt="service image"
-              />
-              <p className="text-sm">Male Infertility & Sexual Problem</p>
-            </div>
-          </div>
-          <div className="shadow-md box">
-            <div className="flex flex-col items-center inner">
-              <Image
-                src={"/services/vec7.png"}
+                src={"/services/iukd5.png"}
                 width={60}
                 height={60}
                 alt="service image"

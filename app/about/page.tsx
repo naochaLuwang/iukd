@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 const AboutPage = async () => {
-  const doctors = await getAllDoctors();
+  const doctors: PeopleProps[] = await getAllDoctors();
   return (
     <div className="w-full h-auto">
       <Banner title="About Us" sublink="About Us" />
@@ -57,7 +57,7 @@ const AboutPage = async () => {
           <h1 className="text-lg font-medium lg:text-2xl">OUR CORE TEAM</h1>
         </div>
 
-        <div className="w-full mt-10">
+        <div className="w-full mt-10 ">
           <DoctorCarousal doctors={doctors} />
         </div>
       </div>

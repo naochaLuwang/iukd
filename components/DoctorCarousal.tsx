@@ -4,7 +4,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
-// import CarousalButton from "../CarousalButton";
 
 import Link from "next/link";
 import { TiLocation } from "react-icons/ti";
@@ -32,7 +31,7 @@ const responsive = {
 };
 
 const DoctorCarousal: React.FC<DoctorCarouselProps> = ({ doctors }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (!Carousel) {
@@ -54,13 +53,11 @@ const DoctorCarousal: React.FC<DoctorCarouselProps> = ({ doctors }) => {
           partialVisible={false}
           arrows={false}
           showDots={true}
-          //   customButtonGroup={<CarousalButton />}
-          //   renderButtonGroupOutside={true}
         >
           {doctors.map((doctor) => (
             <div
               key={doctor.id}
-              className="h-auto pb-5 ml-5 bg-white border shadow-md w-72"
+              className="h-auto pb-5 mb-10 ml-5 bg-white border shadow-md w-72 "
             >
               <div className="relative w-full h-56 ">
                 {doctor.profileUrl === "" ? (
@@ -88,7 +85,9 @@ const DoctorCarousal: React.FC<DoctorCarouselProps> = ({ doctors }) => {
                 <h1 className="text-lg font-medium tracking-wide">
                   {`${doctor.salutation} ${doctor.firstName} ${doctor.lastName}`}
                 </h1>
-                <p className="mt-1 text-sm">{doctor.qualification}</p>
+                <p className="mt-1 text-sm">
+                  {doctor.qualification} ({doctor.department.departmentName})
+                </p>
                 <p className="mt-2 text-xs line-cramp-3">
                   {doctor.designation}
                 </p>

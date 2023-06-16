@@ -8,8 +8,6 @@ import { FaFacebookF } from "react-icons/fa";
 
 import Link from "next/link";
 
-import { usePathname } from "next/navigation";
-
 const Social = () => {
   const [data, setData] = useState<any | null>();
   const [isLoading, setLoading] = useState(false);
@@ -29,7 +27,7 @@ const Social = () => {
       className={` items-center flex justify-between w-full h-12 lg:px-20 px-5 py-1 bg-gradient-to-r from-teal-700 to-teal-950`}
     >
       <div className="flex items-center space-x-2 border-[1px] border-y-transparent border-x-white h-full px-2">
-        <Link href="/">
+        <Link href="https://www.facebook.com/AUKDASSAM" target="_blank">
           <FaFacebookF className="text-white " />
         </Link>
       </div>

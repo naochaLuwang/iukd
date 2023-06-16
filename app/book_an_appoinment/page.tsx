@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import SmallInput from "../../components/Input/SmallInput";
@@ -10,29 +10,24 @@ import TextBox from "../../components/Input/TextBox";
 import Link from "next/link";
 import DepartmentSelect from "@/components/DepartmentSelect";
 import DoctorSelect from "@/components/DoctorSelect";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
 const BookAppoinment = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
-  const [initialDepartment, setInitialDepartment] = useState<any | null>();
-  const [initialDoctor, setInitialDoctor] = useState<any | null>(null);
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [departments, setDepartments] = useState<any | null>();
-  const [doctors, setDoctors] = useState<any | null>();
+  const [doctors, setDoctors] = useState<PeopleProps[] | null>();
   const [selectedDate, setSelectedDate] = useState(null);
 
   const searchParams = useSearchParams();
 
   const dep = searchParams.get("dep");
   const id = searchParams.get("id");
-
-  console.log(dep, id);
 
   const now = new Date();
 
@@ -65,18 +60,6 @@ const BookAppoinment = () => {
     },
   });
 
-  // useEffect(() => {
-  //   const getCurrentDate = () => {
-  //     const today = new Date();
-  //     const year = today.getFullYear();
-  //     const month = String(today.getMonth() + 1).padStart(2, "0");
-  //     const day = String(today.getDate()).padStart(2, "0");
-  //     return `${year}-${month}-${day}`;
-  //   };
-
-  //   setValue("date", getCurrentDate());
-  // }, [setValue]);
-
   useEffect(() => {
     if (dep) {
       setValue("department", dep);
@@ -101,10 +84,6 @@ const BookAppoinment = () => {
 
   let selectedDepartment = watch("department");
 
-  // if (!dep || !id) {
-  //   selectedDepartment = "UROLOGY";
-  // }
-
   useEffect(() => {
     // Set doctors based on the selected department
     if (selectedDepartment && departments) {
@@ -121,6 +100,7 @@ const BookAppoinment = () => {
   }, [id, selectedDepartment, departments, watch, setValue]);
   // Include 'watch("department")' in the dependency array
 
+  // submit the form values
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
     setIsLoading(true);
 
@@ -140,7 +120,9 @@ const BookAppoinment = () => {
     <div className="w-full h-auto lg:min-h-screen">
       <div className="grid w-full h-auto max-w-6xl grid-cols-1 gap-10 py-10 mx-auto lg:grid-cols-2">
         <div className="flex flex-col w-full px-8 space-y-5 lg:px-0">
+          {/* Personal Information */}
           <h1 className="mt-5 text-3xl font-medium ">Personal Information</h1>
+          {/* Name */}
           <SmallInput
             id="name"
             label="Name"
@@ -150,6 +132,7 @@ const BookAppoinment = () => {
             required
             isNumber={false}
           />
+          {/* Gender */}
           <div className="flex w-full mt-5 space-x-6 align-center">
             <Select
               id="gender"
@@ -163,6 +146,7 @@ const BookAppoinment = () => {
               ]}
               required
             />
+            {/* Age */}
             <SmallInput
               id="age"
               label="Age"
@@ -174,6 +158,7 @@ const BookAppoinment = () => {
             />
           </div>
 
+          {/* Address */}
           <TextBox
             label="Address"
             id="address"
@@ -229,22 +214,6 @@ const BookAppoinment = () => {
             />
           </div>
 
-          {/* <div className="w-full">
-            <Calendar
-              minDate={now}
-              onChange={handleDateChange}
-              value={selectedDate}
-              className="p-2 react-calendar"
-            />
-
-            <input
-              type="hidden"
-              id="date"
-              {...register("date", {
-                required: true,
-              })}
-            />
-          </div> */}
           <div className="w-full lg:w-96">
             <DepartmentSelect
               id="department"

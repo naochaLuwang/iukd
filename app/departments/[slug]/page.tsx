@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // optionally access and extend (rather than replace) parent metadata
 
   return {
-    title: `${departments.title}| IUKD`,
+    title: `${departments[0].title}| IUKD`,
   };
 }
 
