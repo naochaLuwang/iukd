@@ -9,38 +9,44 @@ import Link from "next/link";
 
 const data = [
   {
-    icon: "services/iukd1.png",
+    icon: "services/iukds1.png",
     title: "Endo Urological Surgeries",
+    slug: "endo_urological_surgeries",
     description:
-      "Immediate Lifesaving Care: Experience peace of mind knowing that our hospital provides 24/7 ICU and Emergency Services. Our dedicated team of experts is equipped with advanced technology, ready to provide prompt and critical care during medical emergencies. Your health is our priority, always",
+      "Experience exceptional care for urological conditions with our advanced Endo Urological Surgeries. Utilizing minimally invasive techniques, our highly skilled team and state-of-the-art facilities ensure faster recovery, reduced discomfort, and outstanding outcomes. Choose us for excellence in urological care.",
   },
 
   {
-    icon: "services/iukd6.png",
+    icon: "services/iukds7.png",
     title: "Reconstructive Surgeries",
+    slug: "reconstructive_surgeries",
     description:
-      "Timely Diagnostic Solutions: Experience the convenience of our 24/7 Laboratory Services. Our state-of-the-art facility operates round-the-clock, offering a comprehensive range of diagnostic tests and fast results. With a dedicated team of skilled professionals, we ensure accurate and timely analysis, empowering effective treatment decisions for your health and well-being, day or night.",
+      "Discover the Power of Transformation at our Reconstructive Surgeries Department. Expertly revitalizing form and function, we redefine possibilities. From breast enhancements to facial rejuvenation, abdominal wall repair to limb reconstruction, and genitourinary restoration, trust us to reshape your world.",
   },
   {
-    icon: "services/iukd2.png",
+    icon: "services/iukds2.png",
     title: "Urology Cancer Clinic",
+    slug: "urology_cancer_clinic",
     description:
-      "Urgent Care Without Delay: Our hospital provides round-the-clock Trauma & Critical Care Management services. With a specialized team of medical experts, state-of-the-art facilities, and advanced treatment protocols, we deliver immediate and comprehensive care for critical cases. Rest assured, your well-being is our top priority, ensuring prompt interventions and optimal outcomes, 24/7.",
+      "Discover exceptional care at our Urological Cancer Clinic. With a multidisciplinary approach, advanced treatments, and compassionate support, we provide personalized care for urological cancers. Choose us for expertise, innovation, and a path towards recovery.",
   },
   {
-    icon: "services/iukd6.png",
+    icon: "services/iukds6.png",
     title: "Laparoscopic Uro Surgeries",
+    slug: "laparoscopic_uro_surgeries",
     description:
-      "Rapid Emergency Response: Our hospital offers round-the-clock ambulance services, ensuring immediate medical assistance whenever and wherever you need it. Our skilled paramedics and well-equipped ambulances are available 24/7 to swiftly transport patients, providing timely and lifesaving care during critical moments. Trust us to be there in times of emergency, because every second counts.",
+      "Experience cutting-edge laparoscopic urological surgeries for faster recovery and minimal scarring. Our skilled team and state-of-the-art facilities ensure excellent outcomes. Choose us for advanced minimally invasive care.",
   },
   {
-    icon: "services/iukd3.png",
+    icon: "services/iukds3.png",
+    slug: "male_female_urinary_problem",
     title: "Male and Female Urinary Problem",
     description:
-      "Precise Diagnosis, Clear Insight: Our hospital offers advanced Radiology & Imaging services round-the-clock. With cutting-edge technology and experienced radiologists, we provide accurate and detailed diagnostic imaging for accurate medical assessments. From X-rays to MRIs, our comprehensive range of imaging services ensures thorough and timely evaluations to support effective treatment plans, day and night.",
+      "Experience comprehensive care for male and female urinary problems at our specialized clinic. Our expert team provides personalized solutions and advanced treatments, helping you regain comfort and enhance your quality of life. Choose us for effective and compassionate care.",
   },
   {
-    icon: "services/iukd4.png",
+    icon: "services/iukds5.png",
+    slug: "male_fertility_sexual_problem",
     title: "Male Infertility & Sexual Problem",
     description:
       "Comfort and Care at Your Reach: Our hospital provides 24/7 Bed Facility, ensuring a peaceful and supportive environment for your recovery. With well-appointed rooms, attentive staff, and comprehensive medical services, we strive to make your stay as comfortable as possible. Rest assured, our dedicated team is here to provide personalized care and support throughout your journey towards wellness.",
@@ -107,13 +113,16 @@ const Services = () => {
                 {item.description}
               </p>
 
-              <div className="absolute bottom-5 w-fit h-fit">
+              <Link
+                href={`/services/${item.slug}`}
+                className="absolute bottom-5 w-fit h-fit"
+              >
                 <div className="relative px-6 py-3 mt-10 font-bold text-white group w-fit ">
                   <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-teal-700 bg-opacity-90 group-hover:translate-x-0 group-hover:translate-y-0"></span>
                   <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
                   <span className="relative">Learn More</span>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

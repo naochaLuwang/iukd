@@ -117,5 +117,3 @@ const DepartmentDetails = async ({ params }: any) => {
 };
 
 export default DepartmentDetails;
-
-export const revalidate = 0;
