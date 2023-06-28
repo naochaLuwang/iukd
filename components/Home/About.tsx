@@ -4,7 +4,7 @@ import Image from "next/image";
 const AboutUs = () => {
   return (
     <div className="flex flex-col items-start w-full h-auto mx-auto sm:py-20 lg:py-32 lg:max-w-7xl">
-      <div className="flex flex-col items-center w-full space-y-2">
+      <div className="flex flex-col items-center w-full mt-10 space-y-2">
         <h1 className="text-2xl font-medium">About Us</h1>
         <p className="text-base">Institute of Urology And Kidney Diseases</p>
       </div>

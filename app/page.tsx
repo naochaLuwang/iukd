@@ -1,12 +1,12 @@
 import React from "react";
 import HomeCarousal from "../components/Home/Carousal";
 import AboutUs from "@/components/Home/About";
-import Service from "../components/Home/Service";
 
 import EmbedPage from "@/components/Home/EmbedPage";
 
 import CounterMobile from "@/components/Home/CounterMobile";
 import { getAllCounters } from "./actions/getAllCounters";
+import Services from "../components/Home/Services";
 
 export const metadata = {
   icons: {
@@ -44,7 +44,8 @@ const HomePage = async () => {
       <HomeCarousal items={items} counters={counters} />
       <CounterMobile />
       <AboutUs />
-      <Service />
+      {/* <Service /> */}
+      <Services />
 
       <EmbedPage />
     </main>

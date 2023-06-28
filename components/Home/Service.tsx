@@ -2,13 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Services = () => {
+const Service = () => {
   return (
     <section className="services">
       <div className="container">
-        <div className="heading">
+        <div className="mt-10 heading">
           <h1>Our Services</h1>
-          <p className="max-w-xl mx-auto text-sm text-center">
+          <p className="max-w-xl mx-auto text-sm leading-loose text-center">
             Centre for Advanced Urology & Kidney Diseases is the only centre in
             the entire North-Eastern Region of India dedicated only to
             Urological Problems
@@ -24,7 +24,7 @@ const Services = () => {
                   height={60}
                   alt="service image"
                 />
-                <p className="text-sm">Endo Urological Surgeries</p>
+                <p className="">Endo Urological Surgeries</p>
               </div>
             </Link>
           </div>
@@ -112,4 +112,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Service;
