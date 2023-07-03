@@ -51,6 +51,7 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.8"
+    "@types/nodemailer": "^6.4.8",
+    "@types/react-vertical-timeline-component": "^3.3.3"
   }
 }

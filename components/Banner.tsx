@@ -8,7 +8,7 @@ interface BannerProps {
 
 const Banner: React.FC<BannerProps> = ({ title, sublink }) => {
   return (
-    <div className="flex items-center justify-center w-full h-40 bg-gradient-to-r from-teal-700 to-teal-950">
+    <div className="flex items-center justify-center w-full h-36 bg-gradient-to-r from-teal-700 to-teal-950">
       <div>
         <h1 className="text-3xl tracking-wide text-center text-white">
           {title}

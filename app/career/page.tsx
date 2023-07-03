@@ -55,12 +55,16 @@ const IndexPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-auto">
+    <div className="w-full h-auto ">
       <Banner title="Careers" sublink="careers" />
+      {/* <div className="grid w-full h-auto grid-cols-2 gap-6 px-16"> */}
+      {/* <div className="w-full h-auto py-20">
+          <h1 className="text-3xl font-medium">Opening Positions</h1>
+        </div> */}
       <div className="flex flex-col w-full max-w-6xl py-20 mx-auto">
-        <h1 className="mb-5 font-medium ">
-          Thank you for your interest in working with us. Send Us your
-          application by filling out the application form . we will get in touch
+        <h1 className="mb-10 text-lg font-medium">
+          Thank you for your interest in working with us. Send us your
+          application by filling out the application form . We will get in touch
           with you shortly
         </h1>
         <form onSubmit={handleSubmit}>
@@ -132,13 +136,14 @@ const IndexPage: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+            className="w-full px-4 py-3 text-lg font-medium text-white bg-teal-600 rounded hover:bg-teal-700"
           >
             Submit
           </button>
         </form>
       </div>
     </div>
+    // </div>
   );
 };
 

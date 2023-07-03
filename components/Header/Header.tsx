@@ -29,12 +29,12 @@ const Header = () => {
   }, []);
 
   const headerVariants = {
-    initial: { height: "8rem" },
+    initial: { height: "7rem" },
     sticky: { height: "6rem" },
   };
 
   const imageVariants = {
-    initial: { height: "10rem" },
+    initial: { height: "6rem" },
     sticky: { height: "4rem" },
   };
 
