@@ -33,7 +33,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
           <VerticalTimelineElement
             key={item.id}
             className="font-quicksand vertical-timeline-element--work"
-            date={ReactDOMServer.renderToString(
+            date={
               <span className="text-2xl tracking-wider">
                 {new Date(item.date).toLocaleDateString("en-GB", {
                   weekday: "long",
@@ -42,7 +42,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
                   year: "numeric",
                 })}
               </span>
-            )}
+            }
             iconStyle={{ background: "teal", color: "#fff" }}
             contentStyle={{
               background: "white",
