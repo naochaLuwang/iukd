@@ -4,7 +4,6 @@ import ContactForm from "@/components/ContactForm";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { HiMail } from "react-icons/hi";
 import { MdLocationOn } from "react-icons/md";
-import DoctorForm from "@/components/Availability";
 
 export const metadata = {
   title: "Contact Us | IUKD",
