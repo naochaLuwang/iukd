@@ -1,15 +1,24 @@
 import Banner from "@/components/Banner";
 import React from "react";
 
-import { getAllOutreachOpds } from "../actions/getAllOutreachOpds";
 import VerticalTimelineComponent from "@/components/VerticalTimeline";
+import client from "@/lib/prismadb";
 
 export const metadata = {
   title: "Outreach OPDs | IUKD",
 };
 
 const OutreachPage = async () => {
-  const outreachOpds = await getAllOutreachOpds();
+  const outreachOpds: any = await client.outreachopds.findMany({
+    include: {
+      opdLists: true,
+      doctor: {
+        include: {
+          department: true,
+        },
+      },
+    },
+  });
 
   return (
     <div className="w-full h-auto">
@@ -21,5 +30,3 @@ const OutreachPage = async () => {
 };
 
 export default OutreachPage;
-
-export const revalidate = 0;
