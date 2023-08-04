@@ -5,9 +5,8 @@ import AboutUs from "@/components/Home/About";
 import EmbedPage from "@/components/Home/EmbedPage";
 
 import CounterMobile from "@/components/Home/CounterMobile";
-
+import { getAllCounters } from "./actions/getAllCounters";
 import Services from "../components/Home/Services";
-import client from "@/lib/prismadb";
 
 export const metadata = {
   icons: {
@@ -38,11 +37,7 @@ const items: CarouselItem[] = [
 ];
 
 const HomePage = async () => {
-  const counters: any = await client.counters.findMany({
-    where: {
-      status: "ACTIVE",
-    },
-  });
+  const counters = await getAllCounters();
 
   return (
     <main className="relative overflow-hidden">
@@ -58,3 +53,5 @@ const HomePage = async () => {
 };
 
 export default HomePage;
+
+export const revalidate = 0;
