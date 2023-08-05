@@ -1,14 +1,20 @@
 import Banner from "@/components/Banner";
 import React from "react";
 import DoctorCarousal from "../../components/DoctorCarousal";
-import { getAllDoctors } from "../actions/getAllDoctors";
+
+import client from "@/lib/prismadb";
 
 export const metadata = {
   title: "About US | IUKD",
 };
 
 const AboutPage = async () => {
-  const doctors: PeopleProps[] = await getAllDoctors();
+  const doctors: any = await client.people.findMany({
+    include: {
+      department: true,
+    },
+  });
+
   return (
     <div className="w-full h-auto">
       <Banner title="About Us" sublink="About Us" />

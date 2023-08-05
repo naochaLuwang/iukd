@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { IoMail } from "react-icons/io5";
-import { BsTelephoneFill } from "react-icons/bs";
+import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full lg:h-10 py-1 lg:py-0 h-auto flex border-[1px] border-transparent border-opacity-80 border-y-[#BDBDBF] mt-14 items-center text-sm space-x-2 px-16 text-[#BDBDBF] justify-center lg:justify-start">
+      <div className="w-full lg:h-10 py-1 lg:py-0 h-auto flex border-[1px] border-transparent border-opacity-80 border-y-[#BDBDBF] mt-14 items-center text-sm space-x-2 px-16 text-[#BDBDBF] justify-center lg:justify-between">
         <h1 className="text-center lg:text-start">
           Copyright &copy; 2023{" "}
           <span>
@@ -95,6 +95,13 @@ const Footer = () => {
           </span>
           All rights reserved
         </h1>
+
+        <div className="flex items-center">
+          <BsFillShieldLockFill className="h-6" />
+          <Link href="https://iukdcms.vercel.app" target="_blank">
+            <p className="font-medium">Login</p>
+          </Link>
+        </div>
       </div>
 
       <div className="flex items-center justify-center w-full mt-10 text-xs lg:text-sm ">

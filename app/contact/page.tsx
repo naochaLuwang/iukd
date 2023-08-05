@@ -51,10 +51,6 @@ const ContactPage = () => {
           <ContactForm />
         </div>
       </div>
-      {/* <div className="container p-4 mx-auto">
-        <h1 className="mb-4 text-2xl font-bold">Doctor Availability Form</h1>
-        <DoctorForm onSubmit={handleSubmit} />
-      </div> */}
     </div>
   );
 };

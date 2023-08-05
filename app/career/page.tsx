@@ -57,10 +57,7 @@ const IndexPage: React.FC = () => {
   return (
     <div className="w-full h-auto ">
       <Banner title="Careers" sublink="careers" />
-      {/* <div className="grid w-full h-auto grid-cols-2 gap-6 px-16"> */}
-      {/* <div className="w-full h-auto py-20">
-          <h1 className="text-3xl font-medium">Opening Positions</h1>
-        </div> */}
+
       <div className="flex flex-col w-full max-w-6xl py-20 mx-auto">
         <h1 className="mb-10 text-lg font-medium">
           Thank you for your interest in working with us. Send us your
