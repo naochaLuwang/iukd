@@ -17,7 +17,7 @@ interface Counter {
 
 const Counter: React.FC<CountProps> = ({ counter }) => {
   return (
-    <div className="hidden w-full h-56 lg:absolute -bottom-32 lg:block">
+    <div className="hidden w-full h-56  lg:block lg:mt-10">
       <div className="grid grid-cols-1 gap-4 mx-auto max-w-7xl lg:grid-cols-4">
         {counter &&
           counter

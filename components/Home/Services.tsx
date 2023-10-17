@@ -54,28 +54,8 @@ const data = [
 ];
 
 const Services = () => {
-  //   const [ref, inView] = useInView({
-  //     triggerOnce: true,
-  //     threshold: 0.2, // Adjust the threshold as needed
-  //   });
-
   const containerRef = useRef<HTMLDivElement>(null);
 
-  //   useEffect(() => {
-  //     if (inView) {
-  //       const facilityItems =
-  //         containerRef.current?.querySelectorAll(".service-item");
-  //       if (facilityItems) {
-  //         gsap.from(facilityItems, {
-  //           opacity: 0,
-  //           y: 100,
-  //           stagger: 0.2,
-  //           duration: 0.8,
-  //           ease: "power3.out",
-  //         });
-  //       }
-  //     }
-  //   }, [inView]);
   return (
     <div className="w-full h-auto py-10 bg-[#f0f3fa]">
       <div className="w-full h-auto mx-auto max-w-7xl">
@@ -84,14 +64,14 @@ const Services = () => {
             Our Services
           </h1>
           <p className="max-w-xl mx-auto text-sm leading-loose text-center">
-            Centre for Advanced Urology & Kidney Diseases is the only centre in
-            the entire North-Eastern Region of India dedicated only to
-            Urological Problems
+            Institute of Urology and Kidney Diseases is the only centre in the
+            entire North-Eastern Region of India dedicated only to Urological
+            Problems
           </p>
         </div>
 
         <div
-          className="grid w-full grid-cols-1 gap-6 px-4 py-10 lg:py-20 lg:px-0 lg:grid-cols-3"
+          className="grid w-full grid-cols-1 gap-6 px-4 py-10 lg:py-20 lg:px-0 lg:grid-cols-3 lg:max-w-7xl lg:mx-auto"
           ref={containerRef}
         >
           {data.map((item, index) => (
@@ -103,13 +83,13 @@ const Services = () => {
               <Image
                 src={`/${item.icon}`}
                 alt="service"
-                width={100}
-                height={100}
+                width={60}
+                height={60}
               />
-              <h1 className="h-16 mt-3 text-xl font-medium lg:text-2xl">
+              <h1 className="mt-3 font-medium h-14 text-md lg:text-xl">
                 {item.title}
               </h1>
-              <p className="mt-3 mb-5 text-base text-neutral-600 line-clamp-3 ">
+              <p className="mt-0 mb-2 text-sm text-neutral-600 line-clamp-3 ">
                 {item.description}
               </p>
 
@@ -117,7 +97,7 @@ const Services = () => {
                 href={`/services/${item.slug}`}
                 className="absolute bottom-5 w-fit h-fit"
               >
-                <div className="relative px-6 py-3 mt-10 font-bold text-white group w-fit ">
+                <div className="relative px-3 py-2 mt-6 font-bold text-white group w-fit ">
                   <span className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-teal-700 bg-opacity-90 group-hover:translate-x-0 group-hover:translate-y-0"></span>
                   <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
                   <span className="relative">Learn More</span>

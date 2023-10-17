@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -63,7 +64,7 @@ const Header = () => {
               }`}
             >
               <Image
-                src={"/iukdlogon.png"}
+                src={"/iukdlogop.png"}
                 alt="IUKD logo"
                 fill
                 style={{ objectFit: "contain" }}
@@ -90,7 +91,7 @@ const Header = () => {
         </div>
 
         <div className="flex items-center space-x-5 ">
-          <Link href="/contact">
+          {/* <Link href="/contact">
             <div className="flex items-center justify-center h-auto px-4 py-2 text-sm text-white bg-teal-800 rounded-md shadow-md w-fit">
               <motion.span
                 variants={textVariants}
@@ -100,9 +101,17 @@ const Header = () => {
                 Call Me
               </motion.span>
             </div>
-          </Link>
+          </Link> */}
 
-          <Link href="/book_an_appoinment">
+          <div className="flex flex-col">
+            <div className="flex items-center space-x-3">
+              <BsFillTelephoneFill className="w-8 h-8" />
+              <h1 className="text-2xl">8822721671</h1>
+            </div>
+            <h1 className="text-lg font-medium">Book An Appoinment</h1>
+          </div>
+
+          {/* <Link href="/book_an_appoinment">
             <div className="flex items-center justify-center h-auto px-4 py-2 text-sm text-white bg-teal-800 rounded-md shadow-md w-fit">
               <motion.span
                 variants={textVariants}
@@ -112,7 +121,7 @@ const Header = () => {
                 Book An Appointment
               </motion.span>
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </motion.div>

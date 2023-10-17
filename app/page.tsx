@@ -8,6 +8,7 @@ import CounterMobile from "@/components/Home/CounterMobile";
 
 import Services from "../components/Home/Services";
 import client from "@/lib/prismadb";
+import Counter from "@/components/Home/Counter";
 
 export const metadata = {
   icons: {
@@ -18,22 +19,13 @@ export const metadata = {
 
 type CarouselItem = {
   imageUrl: string;
-  title: string;
-  description: string;
+  // title: string;
+  // description: string;
 };
 
 const items: CarouselItem[] = [
   {
-    imageUrl: "slider3.jpg",
-    title: "Center for Advance Urology & Kidney Diseases",
-    description:
-      "Center for Advanced Urology & Kidney Diseases is the only centre in entire North Eastern Region of India.",
-  },
-  {
-    imageUrl: "slider4.jpg",
-    title: "Center for Advance Urology & Kidney Diseases",
-    description:
-      "Center for Advanced Urology & Kidney Diseases is the only centre in entire North Eastern Region of India.",
+    imageUrl: "slider5.jpeg",
   },
 ];
 
@@ -47,6 +39,7 @@ const HomePage = async () => {
   return (
     <main className="relative overflow-hidden">
       <HomeCarousal items={items} counters={counters} />
+      <Counter counter={counters} />
       <CounterMobile />
       <AboutUs />
       {/* <Service /> */}

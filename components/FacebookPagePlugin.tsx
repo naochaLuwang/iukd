@@ -5,7 +5,7 @@ const FacebookPagePlugin = () => {
   return (
     <FacebookProvider appId="1418410625626719">
       <Page
-        href="https://www.facebook.com/AUKDASSAM/"
+        href="https://www.facebook.com/IUKD.INDIA/"
         tabs="timeline"
         width={400}
         height={480}

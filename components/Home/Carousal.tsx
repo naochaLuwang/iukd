@@ -5,10 +5,6 @@ import "react-multi-carousel/lib/styles.css";
 import { Skeleton } from "../../components/ui/skeleton";
 // import CarousalButton from "../CarousalButton";
 
-import Link from "next/link";
-import CarousalButtons from "../CarousalButtons";
-import CustomLeftArrow from "../Arrow/CustomLeftArrow";
-import CustomRightArrow from "../Arrow/CustomRightArrow";
 import Counter from "./Counter";
 
 interface HomeCarousalProps {
@@ -18,8 +14,6 @@ interface HomeCarousalProps {
 
 interface CarousalProps {
   imageUrl: string;
-  title: string;
-  description: string;
 }
 interface CounterProps {
   id: string;
@@ -87,14 +81,14 @@ const HomeCarousal: React.FC<HomeCarousalProps> = ({ items, counters }) => {
                 backgroundImage: `url(${item.imageUrl})`,
               }}
             >
-              <div className="flex flex-col items-start mx-auto px-10 lg:px-0 justify-center space-y-5 lg:max-w-6xl h-[400px] text-white">
+              {/* <div className="flex flex-col items-start mx-auto px-10 lg:px-0 justify-center space-y-5 lg:max-w-6xl h-[400px] text-white">
                 <h1 className="max-w-xl text-3xl tracking-wider lg:text-3xl">
                   {item.title}
                 </h1>
                 <p className="max-w-xl text-lg tracking-wide lg:text-xl leading-1">
                   {item.description}
                 </p>
-              </div>
+              </div> */}
             </div>
           ))}
         </Carousel>
@@ -102,7 +96,7 @@ const HomeCarousal: React.FC<HomeCarousalProps> = ({ items, counters }) => {
         <Skeleton className="w-full h-[480px]" />
       )}
 
-      <Counter counter={counters} />
+      {/* <Counter counter={counters} /> */}
     </div>
   );
 };

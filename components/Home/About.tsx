@@ -15,15 +15,15 @@ const AboutUs = () => {
               Who We Are
             </h1>
             <p className="text-sm leading-loose text-justify lg:text-base">
-              We are a Centre for Advanced Urology & Kidney Diseases is the only
-              centre in entire North-Eastern Region of India dedicated only for
-              Urological Problems. With the use of Most Advanced Laser Machines
-              and all the Urological procedures we provide the best possible
-              Urology Care for Kidney Stones, Prostate Enlargement Problems in
-              elderly male, Kidney and Prostate Cancer, Male sexual problems,
-              Female Urinary problems, Emergency Urology Services. Supported by
-              two Urologist, Nephrologists, Cardiologist, Medicine Specialist,
-              General Surgeon and 20 well trained Urology staffs
+              We are a Centre for Institute of Urology and Kidney Diseases, the
+              only centre in entire North-Eastern Region of India dedicated only
+              for Urological Problems. With the use of Most Advanced Laser
+              Machines and all the Urological procedures we provide the best
+              possible Urology Care for Kidney Stones, Prostate Enlargement
+              Problems in elderly male, Kidney and Prostate Cancer, Male sexual
+              problems, Female Urinary problems, Emergency Urology Services.
+              Supported by two Urologist, Nephrologists, Cardiologist, Medicine
+              Specialist, General Surgeon and 20 well trained Urology staffs
             </p>
           </div>
           <div className="flex-1 h-auto px-10 mt-5 ml-0 lg:ml-24 lg:mt-0 ">

@@ -22,12 +22,12 @@ const ContactPage = () => {
         <div className="flex flex-col order-2 w-full h-auto px-4 space-y-3 lg:order-1 lg:px-0">
           <div className="flex items-center space-x-2">
             <BsFillTelephoneFill className="w-6 h-6 text-teal-600" />
-            <p>+91 9864104444</p>
+            <p>+91 8822721671 / 9864104444</p>
           </div>
 
           <div className="flex items-center space-x-2">
             <HiMail className="w-6 h-6 text-teal-600" />
-            <p>aukd.assam@gmail.com</p>
+            <p>iukd.india@gmail.com</p>
           </div>
 
           <div className="flex items-center space-x-2">

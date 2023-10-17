@@ -63,14 +63,14 @@ const Footer = () => {
           <div className="flex items-center mt-5 space-x-2">
             <BsTelephoneFill className="w-4 h-4 text-white" />
             <p className="text-sm text-[#BDBDBF] hover:text-white">
-              +91 9864104444
+              +91 8822721671
             </p>
           </div>
 
           <div className="flex items-center mt-2 space-x-2">
             <BsTelephoneFill className="w-4 h-4 text-white" />
             <p className="text-sm text-[#BDBDBF] hover:text-white">
-              +91 882272671
+              +91 9864104444
             </p>
           </div>
         </div>
