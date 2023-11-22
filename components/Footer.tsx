@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           <p className="mt-3 text-[#BDBDBF] hover:text-white">
-            aukd.assam@gmail.com
+            iukd.india@gmail.com
           </p>
         </div>
 
