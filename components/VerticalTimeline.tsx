@@ -5,11 +5,10 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import ReactDOMServer from "react-dom/server";
 
 import "react-vertical-timeline-component/style.min.css";
 import Image from "next/image";
-import Link from "next/link";
+
 import { BiClinic } from "react-icons/bi";
 
 const VerticalTimelineComponent = ({ data }: any) => {
