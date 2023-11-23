@@ -21,7 +21,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
   if (filteredData.length === 0) {
     return (
       <div className="flex items-center justify-center w-full h-[60vh]">
-        <h1>No outrach Opds</h1>
+        <h1>No outreach Opds</h1>
       </div>
     );
   }
@@ -94,7 +94,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
                   </div>
                 ))}
               </div>
-              <div className="flex justify-center w-full mt-5 h-fit">
+              {/* <div className="flex justify-center w-full mt-5 h-fit">
                 <Link
                   href={`/book_an_appoinment?dep=${item.doctor.department.departmentName}&id=${item.id}`}
                   className="relative inline-flex items-center px-10 py-3 overflow-hidden text-sm font-medium text-teal-600 border-2 border-teal-600 rounded-full hover:text-white group hover:bg-gray-50"
@@ -118,7 +118,7 @@ const VerticalTimelineComponent = ({ data }: any) => {
                   </span>
                   <span className="relative">Book an Appointment</span>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </VerticalTimelineElement>
         ))}

@@ -105,23 +105,11 @@ const Header = () => {
 
           <div className="flex flex-col">
             <div className="flex items-center space-x-3">
-              <BsFillTelephoneFill className="w-8 h-8" />
+              <BsFillTelephoneFill className="w-6 h-6" />
               <h1 className="text-2xl">8822721671</h1>
             </div>
             <h1 className="text-lg font-medium">Book An Appoinment</h1>
           </div>
-
-          {/* <Link href="/book_an_appoinment">
-            <div className="flex items-center justify-center h-auto px-4 py-2 text-sm text-white bg-teal-800 rounded-md shadow-md w-fit">
-              <motion.span
-                variants={textVariants}
-                initial="initial"
-                animate={isSticky ? "sticky" : "initial"}
-              >
-                Book An Appointment
-              </motion.span>
-            </div>
-          </Link> */}
         </div>
       </div>
     </motion.div>
