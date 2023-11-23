@@ -1,26 +1,33 @@
-"use client";
+// "use client";
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 import Marquee from "react-fast-marquee";
 
 import { FaFacebookF } from "react-icons/fa";
 
 import Link from "next/link";
+import client from "@/lib/prismadb";
 
-const Social = () => {
-  const [data, setData] = useState<any | null>();
-  const [isLoading, setLoading] = useState(false);
+const Social = async () => {
+  // const [data, setData] = useState<any | null>();
+  // const [isLoading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`/api/alert`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch(`/api/alert`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data);
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  const data = await client.alerts.findMany({
+    where: {
+      status: "ACTIVE",
+    },
+  });
 
   return (
     <div
