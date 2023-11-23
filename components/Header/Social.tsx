@@ -61,3 +61,5 @@ const Social = async () => {
 };
 
 export default Social;
+
+export const revalidate = 0;
