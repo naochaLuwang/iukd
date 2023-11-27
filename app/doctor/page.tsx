@@ -4,7 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { TiLocation } from "react-icons/ti";
 import Link from "next/link";
-import { getAllDoctors } from "../actions/getAllDoctors";
+
+import client from "@/lib/prismadb";
 
 export const metadata = {
   title: "Doctors | IUKD",
@@ -13,7 +14,11 @@ export const metadata = {
 export const revalidate = 0;
 
 const DoctorPage = async () => {
-  const doctors: PeopleProps[] = await getAllDoctors();
+  const doctors: any = await client.people.findMany({
+    include: {
+      department: true,
+    },
+  });
   return (
     <div className="w-full h-auto">
       <Banner title="OUR CORE TEAM" sublink="OUR CORE TEAM" />
@@ -21,7 +26,7 @@ const DoctorPage = async () => {
         {doctors &&
           doctors
             .sort((a: any, b: any) => a.order - b.order)
-            .map((doctor) => (
+            .map((doctor: any) => (
               <div
                 key={doctor.id}
                 className="w-full h-[30rem] bg-white shadow-md"
