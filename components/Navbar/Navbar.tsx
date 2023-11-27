@@ -49,7 +49,7 @@ const Navbar = () => {
         const sortedNav = [...data].sort((a, b) => a.order - b.order);
         setData(sortedNav);
       });
-  }, []);
+  }, [data]);
 
   return (
     <motion.div
