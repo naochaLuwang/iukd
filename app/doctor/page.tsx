@@ -10,6 +10,8 @@ export const metadata = {
   title: "Doctors | IUKD",
 };
 
+export const revalidate = 0;
+
 const DoctorPage = async () => {
   const doctors: PeopleProps[] = await getAllDoctors();
   return (
