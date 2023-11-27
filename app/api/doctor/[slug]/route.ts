@@ -5,12 +5,12 @@ interface IParams {
   slug?: string;
 }
 
-export const revalidate = 1;
+export const revalidate = 0;
 
 export async function GET(request: Request, { params }: { params: IParams }) {
   const { slug } = params;
   console.log(slug);
-  const doctor = await prisma.people.findFirstOrThrow({
+  const doctor = await prisma.people.findFirst({
     where: {
       slug: slug,
     },
