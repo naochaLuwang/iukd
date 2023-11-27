@@ -5,7 +5,8 @@ import { getDoctor } from "../../actions/getDoctor";
 import Image from "next/image";
 import { getAllDoctors } from "@/app/actions/getAllDoctors";
 import DoctorCarousal from "../../../components/DoctorCarousal";
-import client from "@/lib/prismadb";
+
+export const revalidate = 0;
 
 type Props = {
   params: { slug: string };
@@ -28,11 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  // const response = await fetch(`${process.env.API_URL}/api/doctor`);
+  const response = await fetch(`${process.env.API_URL}/api/doctor`);
 
-  // const doctors = await response.json();
-
-  const doctors = await client.people.findMany();
+  const doctors = await response.json();
 
   return doctors.map((doctor: any) => ({
     slug: doctor.slug,
@@ -202,5 +201,3 @@ const DoctorDetails = async ({ params }: any) => {
 };
 
 export default DoctorDetails;
-
-export const revalidate = 5;
