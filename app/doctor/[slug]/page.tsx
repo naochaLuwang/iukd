@@ -107,7 +107,7 @@ const DoctorDetails = async ({ params }: any) => {
           <MyEditor content={doctor?.bio} />
         </div>
 
-        <div className="lg:w-[36rem] w-full py-10 lg:py-0 h-auto px-10 flex flex-col justify-center rounded-lg shadow-md mt-5 bg-white border">
+        {/* <div className="lg:w-[36rem] w-full py-10 lg:py-0 h-auto px-10 flex flex-col justify-center rounded-lg shadow-md mt-5 bg-white border">
           <h1 className="text-2xl tracking-wide font-quicksand">
             Available Days
           </h1>
@@ -179,7 +179,7 @@ const DoctorDetails = async ({ params }: any) => {
               <span className="relative">Book an Appoinment</span>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="w-full h-auto px-4 py-10 mx-auto max-w-7xl lg:px-0">
