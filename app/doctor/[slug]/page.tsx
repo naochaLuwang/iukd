@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getAllDoctors } from "@/app/actions/getAllDoctors";
 import DoctorCarousal from "../../../components/DoctorCarousal";
 import Link from "next/link";
+import client from "@/lib/prismadb";
 
 type Props = {
   params: { slug: string };
@@ -45,29 +46,29 @@ const DoctorDetails = async ({ params }: any) => {
     (doctorItem: PeopleProps) => doctorItem.slug !== params.slug
   );
 
-  const opdAvailableDays = doctor.opdDays.split(", ").map((day) => day.trim());
-  console.log(opdAvailableDays);
+  // const opdAvailableDays = doctor.opdDays.split(", ").map((day) => day.trim());
+  // console.log(opdAvailableDays);
 
-  const morningSlots: any = [];
-  const eveningSlots: any = [];
+  // const morningSlots: any = [];
+  // const eveningSlots: any = [];
 
-  doctor.opdTiming.split(",").forEach((slot) => {
-    const [time, period] = slot.trim().split(" ");
-    const [hour, minutes] = time.split(":");
-    const hourValue = parseInt(hour);
+  // doctor.opdTiming.split(",").forEach((slot) => {
+  //   const [time, period] = slot.trim().split(" ");
+  //   const [hour, minutes] = time.split(":");
+  //   const hourValue = parseInt(hour);
 
-    if (
-      (hourValue >= 9 && hourValue < 12 && period === "A.M") ||
-      (hourValue === 12 && period === "P.M")
-    ) {
-      morningSlots.push(slot.trim());
-    } else if (hourValue >= 3 && hourValue < 7 && period === "P.M") {
-      eveningSlots.push(slot.trim());
-    }
-  });
+  //   if (
+  //     (hourValue >= 9 && hourValue < 12 && period === "A.M") ||
+  //     (hourValue === 12 && period === "P.M")
+  //   ) {
+  //     morningSlots.push(slot.trim());
+  //   } else if (hourValue >= 3 && hourValue < 7 && period === "P.M") {
+  //     eveningSlots.push(slot.trim());
+  //   }
+  // });
 
-  console.log(morningSlots);
-  console.log(eveningSlots);
+  // console.log(morningSlots);
+  // console.log(eveningSlots);
 
   return (
     <div className="w-full h-auto">
