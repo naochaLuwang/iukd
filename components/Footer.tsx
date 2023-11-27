@@ -16,9 +16,12 @@ const Footer = () => {
             centre in entire North-Eastern Region of India dedicated only for
             Urological Problems. With the use of Most Advanced Laser Machines
           </p>
-          <p className="mt-2 text-sm text-[#BDBDBF] hover:text-white">
+          <Link
+            href="/about"
+            className="mt-2 text-sm text-[#BDBDBF] hover:text-white"
+          >
             read more
-          </p>
+          </Link>
         </div>
 
         <div className="flex flex-col lg:pl-14">
